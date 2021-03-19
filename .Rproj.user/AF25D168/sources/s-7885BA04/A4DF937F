@@ -1,0 +1,32 @@
+{
+    "id": "A4DF937F",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1616186484240.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "expression": "police_shape",
+        "caption": "police_shape",
+        "totalObservations": "251536",
+        "displayedObservations": "251536",
+        "variables": "22",
+        "cacheKey": "A7F23A0D",
+        "object": "police_shape",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=police_shape&cache_key=A7F23A0D&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 140507161561800,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1616186484240,
+    "read_only": false,
+    "read_only_alternatives": []
+}

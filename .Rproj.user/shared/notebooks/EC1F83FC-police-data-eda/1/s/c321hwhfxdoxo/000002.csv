@@ -1,0 +1,28 @@
+"0","police_shape <- st_read(""data/Raleigh_Police_Incidents_(NIBRS).shp"")
+"
+"1","Reading layer `"
+"1","Raleigh_Police_Incidents_(NIBRS)"
+"1","' from data source `"
+"1","/Users/margaretreed/Projects/Dathathon2021/datathon2021/data/Raleigh_Police_Incidents_(NIBRS).shp"
+"1","' using driver `"
+"1","ESRI Shapefile"
+"1","'"
+"1","
+"
+"1","replacing null geometries with empty geometries"
+"1","
+"
+"1","Simple feature collection with 337780 features and 21 fields"
+"1"," (with 86244 geometries empty)"
+"1","
+"
+"1","geometry type:  POINT
+"
+"1","dimension:      XY
+"
+"1","bbox:           "
+"1","xmin: -78.9848 ymin: 35.56671 xmax: -78.32503 ymax: 36.00489"
+"1","
+"
+"1","geographic CRS: WGS 84
+"

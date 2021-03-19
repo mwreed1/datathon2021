@@ -1,0 +1,49 @@
+---
+title: "police-data-eda"
+author: "margaret"
+date: "3/19/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r load-pkg}
+library(tidyverse)
+library(sf)
+```
+
+
+
+```{r load-data}
+police <- read_csv("data/Raleigh_Police_Incidents_(NIBRS).csv")
+police_shape <- st_read("data/Raleigh_Police_Incidents_(NIBRS).shp")
+nc <- st_read(system.file("shape/nc.shp", package = "sf"), quiet = TRUE)
+wake <- nc%>%filter(NAME=="Wake")
+```
+
+```{r analysis}
+police_shape <- police_shape %>%
+  filter(!st_is_empty(geometry))
+
+nc <- st_transform(nc, crs = st_crs(police_shape))
+
+
+police_shape %>%
+  ggplot() +
+  geom_sf(data = wake) +
+  geom_sf(aes(alpha = 0.1, color = district)) +
+  labs(title = "police inspections") 
+
+police %>%
+  mutate(date = as.Date(reported_date)) %>%
+  count(date) %>%
+  ggplot(aes(x=date, y=n)) +
+  geom_line() +
+  geom_point() +
+  geom_smooth(se=F) +
+  geom_vline(xintercept=as.Date("03/13/2020", format="%m/%d/%Y"), color = "red")
+```
+
