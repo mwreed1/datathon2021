@@ -2,7 +2,7 @@
 title: "police-data-eda"
 author: "margaret"
 date: "3/19/2021"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +17,7 @@ library(sf)
 
 
 
-```{r load-data}
+```{r load-data, cache=T}
 police <- read_csv("../data/Raleigh_Police_Incidents_(NIBRS).csv")
 police_shape <- st_read("../data/Raleigh_Police_Incidents_(NIBRS).shp")
 nc <- st_read(system.file("shape/nc.shp", package = "sf"), quiet = TRUE)
@@ -29,7 +29,7 @@ sv <- st_read("../social_vuln/Overall_2014_Tracts.shp") %>%
 census <- st_read("../Census_Tracts_2010/Census_Tracts_2010.shp")
 ```
 
-```{r analysis}
+```{r analysis, cache=T}
 police_shape <- police_shape %>%
   filter(!st_is_empty(geometry))
 
