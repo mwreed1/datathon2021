@@ -63,12 +63,22 @@ new_po <- police_shape %>%
 ```
 
 ```{r}
+calculate_mode <- function(x) {
+  uniqx <- unique(na.omit(x))
+  uniqx[which.max(tabulate(match(x, uniqx)))]
+}
+# summarizes by finding the most frequent of the cat vars
 cts <- census %>%
   st_join(st_transform(police_shape, st_crs(census))) %>%
   filter(!is.na(TRACTCE10),
          !is.na(OBJECTID.y)) %>%
-  count(TRACTCE10)
-  
+  group_by(TRACTCE10) %>%
+  summarize(n = n(),
+            freq_crime_cat = calculate_mode(crime_cate),
+    freq_crime_code = calculate_mode(crime_code),
+    freq_crime_desc = calculate_mode(crime_desc))
+
+# top ten tracts for crime
 top_10 <- cts %>%
   arrange(desc(n)) %>%
   slice(1:10) %>%
@@ -81,7 +91,7 @@ new_cts <- st_transform(cts %>% mutate(st_cast(., "MULTIPOLYGON")),
 ```{r}
 ggplot(cts) +
   geom_sf(data = census) +
-  geom_sf(aes(fill = n))
+  geom_sf(aes(fill = freq_crime_code))
 ```
 
 
