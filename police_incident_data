@@ -1,0 +1,21 @@
+---
+title: "Police_Incident_Data"
+output: pdf_document
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+install.packages("tidyverse")
+install.packages("sf")
+library(tidyverse)
+library(sf)
+
+
+police <- read_csv("Raleigh_Police_Incidents_(NIBRS).csv")
+
+install.packages("ggplot2", dependencies = TRUE)
+library(ggplot2)
+ggplot2(police) + geom_point(aes(reported_day, reported_hour)) +
+  geom_point(aes(color=class))
