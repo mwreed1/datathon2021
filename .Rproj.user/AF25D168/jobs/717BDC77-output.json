@@ -1,7 +1,0 @@
-[1,"Installing 'rprojroot' for R Markdown...\n"]
-[2,"trying URL 'https://cran.rstudio.com/bin/macosx/contrib/4.0/rprojroot_2.0.2.tgz'\n"]
-[2,"Content type 'application/x-gzip' length 96290 bytes (94 KB)\n================"]
-[2,"==================================\ndownloaded 94 KB\n\n"]
-[1,"The downloaded binary packages are in\n"]
-[1,"\t/var/folders/tm/n7s7fd390fq7kbs03xmfk_680000gn/T//RtmpPTmgaC/downloaded_packages\n"]
-[2,"\n\n✔ Package 'rprojroot' successfully installed.\n"]

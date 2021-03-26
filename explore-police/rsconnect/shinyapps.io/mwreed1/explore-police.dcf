@@ -1,0 +1,12 @@
+name: explore-police
+title: explore-police
+username:
+account: mwreed1
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3826430
+bundleId: 4374545
+url: https://mwreed1.shinyapps.io/explore-police/
+when: 1616294883.7275
+asMultiple: FALSE
+asStatic: FALSE

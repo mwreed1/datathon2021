@@ -68,7 +68,7 @@ calculate_mode <- function(x) {
   uniqx[which.max(tabulate(match(x, uniqx)))]
 }
 # summarizes by finding the most frequent of the cat vars
-cts <- census %>%
+cts <- sv %>%
   st_join(st_transform(police_shape, st_crs(census))) %>%
   filter(!is.na(TRACTCE10),
          !is.na(OBJECTID.y)) %>%
@@ -90,7 +90,7 @@ new_cts <- st_transform(cts %>% mutate(st_cast(., "MULTIPOLYGON")),
 
 ```{r}
 ggplot(cts) +
-  geom_sf(data = census) +
+  geom_sf(data = sv) +
   geom_sf(aes(fill = freq_crime_code))
 ```
 
@@ -154,3 +154,13 @@ sv %>%
        y = "percent under age 17")
 ```
 
+```{r}
+sv %>%
+  st_zm(drop = TRUE, what = "ZM") %>%
+  st_join(new_cts, join = st_overlaps) %>%
+  ggplot(aes_string(x = "n", y = "E_AGE17")) +
+  geom_point() +
+  geom_smooth(se = F) +
+  labs(x = "number of crimes in a census tract", 
+       y = "percent under age 17")
+```
